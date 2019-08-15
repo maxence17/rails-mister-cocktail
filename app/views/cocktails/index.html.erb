@@ -1,0 +1,24 @@
+<h1>Cocktailmania</h1>
+
+
+<div class="container mt-5">
+  <h1>cocktails</h1>
+  <table class="table mt-5 infos-list">
+    <thead class="thead-dark">
+      <tr>
+        <th>Cocktails</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cocktails.each do |cocktail| %>
+        <tr>
+          <td><%= link_to Cocktail.name, cocktail_path(cocktail) %></td>
+          <td><%= cocktail.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'Add a new cocktail', new_cocktail_path, class: 'btn btn-primary'%>
+</div>

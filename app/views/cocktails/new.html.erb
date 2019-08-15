@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <div class="form-inputs">
+    <%= simple_form_for(@cocktail) do |f| %>
+    <h3>Please add the information below</h3>
+    <p><%= f.label :name %></p>
+    <p><%= f.text_field :name %></p>
+
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to 'Back to list', cocktails_path, class: "btn btn-dark" %>
+    <% end %>
+  </div>
+</div>
