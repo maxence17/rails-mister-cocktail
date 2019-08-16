@@ -4,6 +4,8 @@
     <h3>Please add the information below</h3>
     <p><%= f.label :name %></p>
     <p><%= f.text_field :name %></p>
+       <%= f.input :photo %>
+       <%= f.input :photo_cache, as: :hidden %>
 
     <%= f.submit class: "btn btn-primary" %>
     <%= link_to 'Back to list', cocktails_path, class: "btn btn-dark" %>

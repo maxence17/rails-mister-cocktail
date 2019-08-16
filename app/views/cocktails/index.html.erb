@@ -1,32 +1,31 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light" class="sticky">
   <a class="navbar-brand" href="#">
     <img src="https://www.maliburumdrinks.com/globalassets/images/cocktail-recipe-images/malibu-island-cosmo.png/CocktailHero" width="30" height="30" class="d-inline-block align-top" alt="">
     Bartendr
   </a>
 </nav>
 
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/originals/b9/4d/4f/b94d4f336d6cdbbc9332bd15027fd3bc.jpg);">
+  <div class="container">
+    <h1><strong>Welcome to Bartendr</strong></h1>
+    <p>Choose your drink</p>
+    <%= link_to 'Add your cocktail', new_cocktail_path, class: 'btn btn-primary'%>
+  </div>
+</div>
+
+      <div class="cards">
+        <% @cocktails.each do |cocktail| %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path cocktail.photo unless cocktail.photo.blank? %>">
+
+              <%= link_to cocktail.name, cocktail_path(cocktail) %>
+              <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: "Delete #{cocktail}?" } do %>
+           <i class="fas fa-trash"></i>
+           <% end %>
+          </div>
+        <% end %>
+      </div>
+  </div>
 
 
-<div class="container mt-5">
-  <table class="table mt-5 infos-list">
-    <thead class="thead-dark">
-      <tr>
-        <th>Cocktails</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @cocktails.each do |cocktail| %>
-        <tr>
-          <td><%= link_to cocktail.name, cocktail_path(cocktail) %>
-            <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: "Delete #{cocktail}?" } do %>
-         <i class="fas fa-trash"></i>
-         <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <br>
-  <%= link_to 'Add a new cocktail', new_cocktail_path, class: 'btn btn-primary'%>
+
 </div>
